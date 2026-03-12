@@ -17,7 +17,7 @@ fetch('https://fakestoreapi.com/products')
       const price = document.createElement('p');
       price.classList.add('item-price');
       left.appendChild(price);
-      price.textContent = `${product.price}`
+      price.textContent = `£${product.price}`
 
       const quantityP = document.createElement('p');
       quantityP.classList.add('item-quantity');
@@ -91,7 +91,7 @@ if(products.length === 0){
   let cartTotal = 0 
   products.forEach(product => {
     const priceElement = product.querySelector('.item-price')
-    const priceValue = parseFloat(priceElement.textContent);
+    const priceValue = parseFloat(priceElement.textContent.replace('£', ''));
     const span = product.querySelector('span')
     const quantityValue = parseInt(span.textContent)
 
